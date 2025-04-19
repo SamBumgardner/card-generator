@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://k3vek4d1ci4t"]
 
 [ext_resource type="PackedScene" uid="uid://dafd36mciqna5" path="res://card.tscn" id="1_bhkk0"]
-[ext_resource type="Script" path="res://card_generator.gd" id="1_uduw0"]
+[ext_resource type="Script" uid="uid://ojeprkjhocyt" path="res://card_generator.gd" id="1_uduw0"]
 
 [node name="CardGenerator" type="Control"]
 layout_mode = 3
@@ -14,34 +14,17 @@ offset_right = 40.0
 offset_bottom = 40.0
 theme_override_constants/h_separation = 0
 theme_override_constants/v_separation = 0
-columns = 5
+columns = 2
 
 [node name="Card" parent="GridContainer" instance=ExtResource("1_bhkk0")]
 layout_mode = 2
 
 [node name="Card2" parent="GridContainer" instance=ExtResource("1_bhkk0")]
 layout_mode = 2
+cost = 1
+card_name = "Sam's Card"
 
 [node name="Card3" parent="GridContainer" instance=ExtResource("1_bhkk0")]
 layout_mode = 2
-
-[node name="Card4" parent="GridContainer" instance=ExtResource("1_bhkk0")]
-layout_mode = 2
-
-[node name="Card5" parent="GridContainer" instance=ExtResource("1_bhkk0")]
-layout_mode = 2
-
-[node name="Card6" parent="GridContainer" instance=ExtResource("1_bhkk0")]
-layout_mode = 2
-
-[node name="Card7" parent="GridContainer" instance=ExtResource("1_bhkk0")]
-layout_mode = 2
-
-[node name="Card8" parent="GridContainer" instance=ExtResource("1_bhkk0")]
-layout_mode = 2
-
-[node name="Card9" parent="GridContainer" instance=ExtResource("1_bhkk0")]
-layout_mode = 2
-
-[node name="Card10" parent="GridContainer" instance=ExtResource("1_bhkk0")]
-layout_mode = 2
+cost = 2
+card_name = "Sarah's Card"
