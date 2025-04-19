@@ -4,10 +4,10 @@ extends EditorImportPlugin
 enum Presets {DEFAULT}
 
 func _get_importer_name():
-    return "card_spec_importer"
+    return "printing_set_importer"
 
 func _get_visible_name():
-    return "Card Specification"
+    return "Printing Set"
 
 func _get_import_order() -> int:
     return -1000
@@ -24,7 +24,7 @@ func _get_save_extension():
     return "tres"
 
 func _get_resource_type():
-    return "CardSpec"
+    return "PrintingSpecification"
 
 func _get_preset_count() -> int:
     return 1
@@ -52,7 +52,7 @@ func _import(source_file, save_path, options, r_platform_variants, r_gen_files):
     
     var print_set = CardPrintingSet.new()
 
-    const REQUIRED_HEADERS = ['supertype']
+    const REQUIRED_HEADERS: Array[String] = ['supertype']
     var headers = _parse_and_validate_headers(file.get_line(), REQUIRED_HEADERS)
 
     while file.get_position() < file.get_length():
@@ -62,11 +62,11 @@ func _import(source_file, save_path, options, r_platform_variants, r_gen_files):
     return ResourceSaver.save(print_set, "%s.%s" % [save_path, _get_save_extension()])
 
 
-func _parse_and_validate_headers(header_line: String, required_headers: Array[String]) -> Array[String]:
+func _parse_and_validate_headers(header_line: String, required_headers: Array[String]) -> PackedStringArray:
     var column_headers = header_line.split("\t")
     var header_set = {}
     for header in column_headers:
-        header_set.add(header)
+        header_set[header] = null
 
     for required_header in required_headers:
         if not header_set.has(required_header):
@@ -75,8 +75,8 @@ func _parse_and_validate_headers(header_line: String, required_headers: Array[St
     return column_headers
 
 
-func _parse_printing_spec(line: String, column_headers: Array[String]) -> PrintingSpecification:
-    var card_fields: Array[String] = line.split("\t")
+func _parse_printing_spec(line: String, column_headers: PackedStringArray) -> PrintingSpecification:
+    var card_fields: PackedStringArray = line.split("\t")
 
     var printing_spec = PrintingSpecification.new()
     var card_spec = CardSpecification.new()
