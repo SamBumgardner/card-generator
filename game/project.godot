@@ -17,8 +17,8 @@ config/icon="res://icon.svg"
 
 [display]
 
-window/size/viewport_width=800
-window/size/viewport_height=600
+window/size/viewport_width=2475
+window/size/viewport_height=3535
 
 [editor_plugins]
 
@@ -28,3 +28,4 @@ enabled=PackedStringArray("res://addons/card_specification_importer/plugin.cfg")
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+viewport/transparent_background=true

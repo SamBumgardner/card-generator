@@ -1,30 +1,22 @@
 [gd_scene load_steps=3 format=3 uid="uid://k3vek4d1ci4t"]
 
-[ext_resource type="PackedScene" uid="uid://dafd36mciqna5" path="res://card.tscn" id="1_bhkk0"]
 [ext_resource type="Script" uid="uid://ojeprkjhocyt" path="res://card_generator.gd" id="1_uduw0"]
+[ext_resource type="Resource" uid="uid://c16chwwt258pj" path="res://data/Guilds & Dungeons Card Spec - Gear.tsv" id="2_bwpfb"]
 
 [node name="CardGenerator" type="Control"]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_uduw0")
+set_to_print = ExtResource("2_bwpfb")
 
 [node name="GridContainer" type="GridContainer" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_top = 80.0
+offset_bottom = 80.0
 theme_override_constants/h_separation = 0
 theme_override_constants/v_separation = 0
 columns = 2
-
-[node name="Card" parent="GridContainer" instance=ExtResource("1_bhkk0")]
-layout_mode = 2
-
-[node name="Card2" parent="GridContainer" instance=ExtResource("1_bhkk0")]
-layout_mode = 2
-cost = 1
-card_name = "Sam's Card"
-
-[node name="Card3" parent="GridContainer" instance=ExtResource("1_bhkk0")]
-layout_mode = 2
-cost = 2
-card_name = "Sarah's Card"
