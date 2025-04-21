@@ -1,0 +1,78 @@
+[gd_scene load_steps=3 format=3 uid="uid://3gd0q835ec51"]
+
+[ext_resource type="Script" uid="uid://do34r2kwtnlw6" path="res://card/template/shared/build_cost.gd" id="1_t2c4p"]
+
+[sub_resource type="Theme" id="Theme_t2c4p"]
+Label/font_sizes/font_size = 40
+
+[node name="BuildCost" type="VBoxContainer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -109.0
+offset_right = 244.0
+offset_bottom = 94.0
+grow_horizontal = 2
+theme = SubResource("Theme_t2c4p")
+alignment = 1
+script = ExtResource("1_t2c4p")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 2
+text = "Build Cost:"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Tech"
+
+[node name="TechCost" type="Label" parent="HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "1"
+horizontal_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Nature"
+
+[node name="NatureCost" type="Label" parent="HBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "1"
+horizontal_alignment = 1
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+text = "Magic"
+
+[node name="MagicCost" type="Label" parent="HBoxContainer/VBoxContainer3"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "1"
+horizontal_alignment = 1
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer4"]
+layout_mode = 2
+text = "Wild"
+
+[node name="WildCost" type="Label" parent="HBoxContainer/VBoxContainer4"]
+layout_mode = 2
+text = "1"
+horizontal_alignment = 1

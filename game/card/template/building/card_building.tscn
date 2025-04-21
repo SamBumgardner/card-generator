@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://cbukaku8ily0x"]
+
+[ext_resource type="PackedScene" uid="uid://dafd36mciqna5" path="res://card/template/card.tscn" id="1_mqnle"]
+[ext_resource type="Script" uid="uid://dqcgjwba72qnj" path="res://card/template/building/card_building.gd" id="2_hkucr"]
+[ext_resource type="PackedScene" uid="uid://3gd0q835ec51" path="res://card/template/shared/build_cost.tscn" id="3_p1krt"]
+
+[node name="Card" instance=ExtResource("1_mqnle")]
+script = ExtResource("2_hkucr")
+
+[node name="BuildCost" parent="ColorRect" index="3" instance=ExtResource("3_p1krt")]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.15
+anchor_bottom = 0.15
+offset_left = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
