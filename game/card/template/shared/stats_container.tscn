@@ -1,0 +1,85 @@
+[gd_scene load_steps=4 format=3 uid="uid://b4bcleemsns2e"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mu73v"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.8, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_de8yh"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 0.843137, 0, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xn7o1"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 1, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[node name="StatsContainer" type="VBoxContainer"]
+anchors_preset = -1
+anchor_top = 0.3
+anchor_bottom = 0.3
+offset_left = 10.0
+grow_vertical = 2
+
+[node name="MightContainer" type="PanelContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_mu73v")
+
+[node name="Might" type="Label" parent="MightContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+theme_type_variation = &"HeaderMedium"
+theme_override_font_sizes/font_size = 48
+text = "1"
+horizontal_alignment = 1
+
+[node name="AgilityContainer" type="PanelContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_de8yh")
+
+[node name="Agility" type="Label" parent="AgilityContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+theme_type_variation = &"HeaderMedium"
+theme_override_font_sizes/font_size = 48
+text = "1"
+horizontal_alignment = 1
+
+[node name="SpiritContainer" type="PanelContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_xn7o1")
+
+[node name="Spirit" type="Label" parent="SpiritContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+theme_type_variation = &"HeaderMedium"
+theme_override_font_sizes/font_size = 48
+text = "1"
+horizontal_alignment = 1

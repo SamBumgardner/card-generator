@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dyhns2c6smuti"]
 
 [ext_resource type="PackedScene" uid="uid://dafd36mciqna5" path="res://card/template/card.tscn" id="1_dawb3"]
-[ext_resource type="Script" uid="uid://lswf8ytubmqw" path="res://card/template/card_gear.gd" id="2_n8ret"]
+[ext_resource type="Script" uid="uid://lswf8ytubmqw" path="res://card/template/gear/card_gear.gd" id="2_n8ret"]
 
 [node name="CardGear" instance=ExtResource("1_dawb3")]
 script = ExtResource("2_n8ret")

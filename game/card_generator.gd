@@ -66,7 +66,7 @@ func _instantiate_cards(next_page_of_cards: Array):
     if not next_page_of_cards.is_empty():
         $GridContainer.get_children().map(func(x): x.queue_free())
         for spec in next_page_of_cards:
-            var card_scene: PackedScene = load("res://card/template/card_gear.tscn")
+            var card_scene: PackedScene = FormatSelector.card_templates[spec.supertype] 
             var card: Card = card_scene.instantiate()
             card.card_spec = spec
             $GridContainer.add_child(card)

@@ -62,7 +62,7 @@ text = "Card Name"
 layout_mode = 2
 theme_type_variation = &"HeaderSmall"
 theme_override_font_sizes/font_size = 48
-text = "Gear"
+text = "Supertype"
 horizontal_alignment = 1
 
 [node name="Body" type="VBoxContainer" parent="ColorRect"]
@@ -91,5 +91,5 @@ layout_mode = 2
 size_flags_vertical = 1
 theme_type_variation = &"HeaderSmall"
 theme_override_font_sizes/font_size = 48
-text = "Here's the Card Description. It may be multiple lines long, and that's okay"
+text = "Here's the Card Effect. It may be multiple lines long, and that's okay"
 autowrap_mode = 2
