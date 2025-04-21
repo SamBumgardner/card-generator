@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dafd36mciqna5"]
 
 [ext_resource type="Theme" uid="uid://cmqrgxfe1sicp" path="res://new_theme.tres" id="1_0nipv"]
-[ext_resource type="Script" uid="uid://b62kgd0773g1b" path="res://card.gd" id="1_cvpq3"]
+[ext_resource type="Script" uid="uid://b62kgd0773g1b" path="res://card/template/card.gd" id="1_cvpq3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_siknw"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -93,24 +93,3 @@ theme_type_variation = &"HeaderSmall"
 theme_override_font_sizes/font_size = 48
 text = "Here's the Card Description. It may be multiple lines long, and that's okay"
 autowrap_mode = 2
-
-[node name="CostIcon" type="ColorRect" parent="ColorRect"]
-layout_mode = 0
-offset_left = 5.0
-offset_top = 5.0
-offset_right = 133.0
-offset_bottom = 133.0
-color = Color(0.71, 0.71, 0.71, 1)
-
-[node name="CostValue" type="Label" parent="ColorRect/CostIcon"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_type_variation = &"HeaderMedium"
-theme_override_font_sizes/font_size = 64
-text = "2"
-horizontal_alignment = 1
-vertical_alignment = 1
