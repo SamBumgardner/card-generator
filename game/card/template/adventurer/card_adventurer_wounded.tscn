@@ -7,11 +7,6 @@
 script = ExtResource("2_4dt7d")
 
 [node name="StatsContainer" parent="ColorRect" index="3"]
-layout_mode = 1
-anchors_preset = -1
 anchor_top = 0.3
 anchor_bottom = 0.3
-offset_left = 10.0
-offset_right = 0.0
-offset_bottom = 0.0
 grow_vertical = 2

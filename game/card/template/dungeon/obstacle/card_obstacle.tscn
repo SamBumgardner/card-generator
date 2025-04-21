@@ -1,0 +1,27 @@
+[gd_scene load_steps=7 format=3 uid="uid://cgpx7invpv41f"]
+
+[ext_resource type="PackedScene" uid="uid://dafd36mciqna5" path="res://card/template/card.tscn" id="1_2cvrl"]
+[ext_resource type="Script" uid="uid://bvopkwpowadrf" path="res://card/template/dungeon/obstacle/card_obstacle.gd" id="2_03wrx"]
+[ext_resource type="PackedScene" uid="uid://b4bcleemsns2e" path="res://card/template/shared/stats_container.tscn" id="2_pia1d"]
+[ext_resource type="PackedScene" uid="uid://dlq34nrxxum5u" path="res://card/template/shared/reward_container.tscn" id="3_8d7sg"]
+[ext_resource type="PackedScene" uid="uid://nx481385c2ai" path="res://card/template/shared/resources_footer.tscn" id="3_t6ut0"]
+[ext_resource type="PackedScene" uid="uid://q37vkuvna1o3" path="res://card/template/shared/threat_container.tscn" id="6_pkdkx"]
+
+[node name="Card" instance=ExtResource("1_2cvrl")]
+script = ExtResource("2_03wrx")
+
+[node name="RewardContainer" parent="ColorRect/Body" index="2" instance=ExtResource("3_8d7sg")]
+layout_mode = 2
+
+[node name="StatsContainer" parent="ColorRect" index="3" instance=ExtResource("2_pia1d")]
+layout_mode = 1
+offset_right = 95.0
+offset_bottom = 263.0
+
+[node name="ResourcesFooter" parent="ColorRect" index="4" instance=ExtResource("3_t6ut0")]
+layout_mode = 1
+anchors_preset = -1
+
+[node name="ThreatContainer" parent="ColorRect" index="5" instance=ExtResource("6_pkdkx")]
+layout_mode = 1
+anchors_preset = -1
