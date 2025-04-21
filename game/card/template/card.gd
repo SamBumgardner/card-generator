@@ -13,3 +13,8 @@ func _ready() -> void:
         supertype_label.text = card_spec.supertype
         typeline_label.text = card_spec.fields['typeline']
         effect_label.text = card_spec.fields['effect']
+        
+        if effect_label.text.is_empty():
+            $ColorRect/Body/EffectContainer.hide()
+        else:
+            $ColorRect/Body/EffectContainer.show()

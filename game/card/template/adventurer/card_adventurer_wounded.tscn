@@ -6,6 +6,9 @@
 [node name="CardAdventurerWounded" instance=ExtResource("1_4u66h")]
 script = ExtResource("2_4dt7d")
 
+[node name="Name" parent="ColorRect/Header" index="0"]
+horizontal_alignment = 0
+
 [node name="StatsContainer" parent="ColorRect" index="3"]
 anchor_top = 0.3
 anchor_bottom = 0.3
