@@ -1,15 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dafd36mciqna5"]
+[gd_scene load_steps=4 format=3 uid="uid://dafd36mciqna5"]
 
 [ext_resource type="Theme" uid="uid://cmqrgxfe1sicp" path="res://new_theme.tres" id="1_0nipv"]
 [ext_resource type="Script" uid="uid://b62kgd0773g1b" path="res://card/template/card.gd" id="1_cvpq3"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_siknw"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
-border_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rjlel"]
 bg_color = Color(1, 1, 1, 1)
@@ -30,43 +22,46 @@ offset_bottom = 300.0
 theme = ExtResource("1_0nipv")
 script = ExtResource("1_cvpq3")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Border" type="ColorRect" parent="."]
 layout_mode = 2
+color = Color(0, 0, 0, 1)
 
-[node name="Panel" type="Panel" parent="ColorRect"]
+[node name="ColorRect" type="ColorRect" parent="Border"]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 25.0
+offset_top = 25.0
+offset_right = -25.0
+offset_bottom = -25.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_siknw")
 
-[node name="Header" type="VBoxContainer" parent="ColorRect"]
+[node name="Header" type="VBoxContainer" parent="Border/ColorRect"]
 layout_mode = 1
-anchors_preset = 5
+anchors_preset = -1
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -20.0
-offset_right = 20.0
-offset_bottom = 40.0
 grow_horizontal = 2
 
-[node name="Name" type="Label" parent="ColorRect/Header"]
+[node name="Name" type="Label" parent="Border/ColorRect/Header"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_type_variation = &"HeaderLarge"
 theme_override_font_sizes/font_size = 48
 text = "Card Name"
 horizontal_alignment = 1
 
-[node name="Supertype" type="Label" parent="ColorRect/Header"]
+[node name="Supertype" type="Label" parent="Border/ColorRect/Header"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_type_variation = &"HeaderSmall"
 theme_override_font_sizes/font_size = 48
 text = "Supertype"
 horizontal_alignment = 1
 
-[node name="Body" type="VBoxContainer" parent="ColorRect"]
+[node name="Body" type="VBoxContainer" parent="Border/ColorRect"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -75,19 +70,21 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 
-[node name="Typeline" type="Label" parent="ColorRect/Body"]
+[node name="Typeline" type="Label" parent="Border/ColorRect/Body"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_type_variation = &"HeaderSmall"
 theme_override_font_sizes/font_size = 32
 text = "Subtype 1, Subtype 2, Subtype 3"
 autowrap_mode = 2
 
-[node name="EffectContainer" type="PanelContainer" parent="ColorRect/Body"]
+[node name="EffectContainer" type="PanelContainer" parent="Border/ColorRect/Body"]
 custom_minimum_size = Vector2(740, 0)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_rjlel")
 
-[node name="Effect" type="Label" parent="ColorRect/Body/EffectContainer"]
+[node name="Effect" type="Label" parent="Border/ColorRect/Body/EffectContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 1
 theme_type_variation = &"HeaderSmall"

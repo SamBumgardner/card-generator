@@ -7,9 +7,9 @@
 [node name="CardAdventurer" instance=ExtResource("1_433tk")]
 script = ExtResource("2_4o5qb")
 
-[node name="Panel" parent="ColorRect" index="0"]
-offset_left = 2.0
-offset_right = 2.0
-
-[node name="StatsContainer" parent="ColorRect" index="3" instance=ExtResource("3_mu73v")]
+[node name="StatsContainer" parent="Border/ColorRect" index="2" instance=ExtResource("3_mu73v")]
+unique_name_in_owner = true
 layout_mode = 1
+anchor_top = 0.15
+anchor_bottom = 0.15
+offset_left = 0.0

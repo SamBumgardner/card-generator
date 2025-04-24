@@ -2,10 +2,10 @@ class_name Card extends MarginContainer
 
 @export var card_spec: CardSpecification
 
-@onready var name_label: Label = $ColorRect/Header/Name
-@onready var supertype_label: Label = $ColorRect/Header/Supertype
-@onready var typeline_label: Label = $ColorRect/Body/Typeline
-@onready var effect_label: Label = $"ColorRect/Body/EffectContainer/Effect"
+@onready var name_label: Label = $%Name
+@onready var supertype_label: Label = $%Supertype
+@onready var typeline_label: Label = $%Typeline
+@onready var effect_label: Label = $%Effect
 
 func _ready() -> void:
     if card_spec != null:
@@ -15,6 +15,6 @@ func _ready() -> void:
         effect_label.text = card_spec.fields['effect']
         
         if effect_label.text.is_empty():
-            $ColorRect/Body/EffectContainer.hide()
+            $Border/ColorRect/Body/EffectContainer.hide()
         else:
-            $ColorRect/Body/EffectContainer.show()
+            $Border/ColorRect/Body/EffectContainer.show()

@@ -21,7 +21,10 @@ offset_bottom = 263.0
 [node name="ResourcesFooter" parent="ColorRect" index="4" instance=ExtResource("3_t6ut0")]
 layout_mode = 1
 anchors_preset = -1
+offset_bottom = -35.0
 
 [node name="ThreatContainer" parent="ColorRect" index="5" instance=ExtResource("6_pkdkx")]
 layout_mode = 1
 anchors_preset = -1
+offset_top = 35.0
+offset_right = -35.0
