@@ -1,0 +1,48 @@
+[gd_scene load_steps=4 format=3 uid="uid://3o655dk128vj"]
+
+[ext_resource type="PackedScene" uid="uid://cgpx7invpv41f" path="res://card/template/dungeon/card_dungeon.tscn" id="1_7txum"]
+[ext_resource type="Script" uid="uid://gih7usq3r8bp" path="res://card/template/dungeon/persist/card_dungeon_persist.gd" id="2_wlosm"]
+
+[sub_resource type="Theme" id="Theme_wlosm"]
+default_font_size = 36
+
+[node name="CardDungeonPersist" instance=ExtResource("1_7txum")]
+script = ExtResource("2_wlosm")
+
+[node name="PersistCondition" type="VBoxContainer" parent="Border/ColorRect" index="4"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.2
+anchor_right = 0.5
+anchor_bottom = 0.2
+grow_horizontal = 2
+theme = SubResource("Theme_wlosm")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Border/ColorRect/PersistCondition" index="0"]
+layout_mode = 2
+
+[node name="PointsToClearHeader" type="Label" parent="Border/ColorRect/PersistCondition/HBoxContainer" index="0"]
+layout_mode = 2
+text = "Points Req. To Clear:"
+horizontal_alignment = 1
+
+[node name="RemovalPoints" type="Label" parent="Border/ColorRect/PersistCondition/HBoxContainer" index="1"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "5"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Border/ColorRect/PersistCondition" index="1"]
+layout_mode = 2
+
+[node name="PointsConditionHeader" type="Label" parent="Border/ColorRect/PersistCondition/VBoxContainer" index="0"]
+layout_mode = 2
+text = "To Earn Points:"
+horizontal_alignment = 1
+
+[node name="RemovalCondition" type="Label" parent="Border/ColorRect/PersistCondition/VBoxContainer" index="1"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "clear obstacle"
+horizontal_alignment = 1

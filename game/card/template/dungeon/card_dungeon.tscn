@@ -1,0 +1,21 @@
+[gd_scene load_steps=6 format=3 uid="uid://cgpx7invpv41f"]
+
+[ext_resource type="PackedScene" uid="uid://dafd36mciqna5" path="res://card/template/card.tscn" id="1_qlkt3"]
+[ext_resource type="Script" uid="uid://c3jssq0ldra1c" path="res://card/template/dungeon/card_dungeon.gd" id="2_7rtbx"]
+[ext_resource type="PackedScene" uid="uid://dlq34nrxxum5u" path="res://card/template/shared/reward_container.tscn" id="3_pj25l"]
+[ext_resource type="PackedScene" uid="uid://nx481385c2ai" path="res://card/template/shared/resources_footer.tscn" id="4_1h1ic"]
+[ext_resource type="PackedScene" uid="uid://q37vkuvna1o3" path="res://card/template/shared/threat_container.tscn" id="5_bh40y"]
+
+[node name="CardDungeon" instance=ExtResource("1_qlkt3")]
+script = ExtResource("2_7rtbx")
+
+[node name="RewardsContainer" parent="Border/ColorRect/Body" index="2" instance=ExtResource("3_pj25l")]
+layout_mode = 2
+
+[node name="ResourcesFooter" parent="Border/ColorRect" index="2" instance=ExtResource("4_1h1ic")]
+layout_mode = 1
+anchors_preset = -1
+
+[node name="ThreatContainer" parent="Border/ColorRect" index="3" instance=ExtResource("5_bh40y")]
+layout_mode = 1
+anchors_preset = -1
