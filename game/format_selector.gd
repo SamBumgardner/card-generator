@@ -8,6 +8,6 @@ const card_templates: Dictionary = {
     'Building': preload("res://card/template/building/card_building.tscn"),
     'Dungeon Obstacle':preload("res://card/template/dungeon/obstacle/card_dungeon_obstacle.tscn"),
     'Dungeon Persist': preload("res://card/template/dungeon/persist/card_dungeon_persist.tscn"),
-    'Treasure': null,
+    'Treasure': preload("res://card/template/dungeon/treasure/card_treasure.tscn"),
     'Boss Action': preload("res://card/template/dungeon/boss/card_boss_action.tscn"),
 }
