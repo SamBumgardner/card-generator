@@ -12,8 +12,8 @@ script = ExtResource("2_gw7fp")
 
 [node name="ThreatContainer" parent="Border/ColorRect" index="2" instance=ExtResource("3_0i115")]
 unique_name_in_owner = true
-layout_mode = 0
-anchors_preset = 0
+layout_mode = 1
+anchors_preset = -1
 
 [node name="FameContainer" type="VBoxContainer" parent="Border/ColorRect" index="3"]
 layout_mode = 1

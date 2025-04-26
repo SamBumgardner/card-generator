@@ -10,3 +10,6 @@ script = ExtResource("2_lv88r")
 [node name="StatsContainer" parent="Border/ColorRect" index="4" instance=ExtResource("3_l1kdv")]
 layout_mode = 0
 anchors_preset = 0
+anchor_top = 0.0
+anchor_bottom = 0.0
+offset_left = 0.0

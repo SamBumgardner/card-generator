@@ -1,9 +1,10 @@
 extends Control
 
-@export var set_to_print: CardPrintingSet
+@export var sets_to_print: Array[CardPrintingSet]
 @export var cards_per_page: int = 9
 @export var cards_per_row: int = 3
 
+var current_set_i: int = 0
 var current_print_spec_i: int = 0
 var current_card_printed_count: int = 0
 var print_page_number = 0
@@ -17,7 +18,7 @@ func _ready():
 
 func get_next_page_of_card_specs() -> Array:
     var next_page = []
-    var printing_specs = set_to_print.printing_specs
+    var printing_specs = sets_to_print[current_set_i].printing_specs
     while current_print_spec_i < printing_specs.size():
         var current_card = printing_specs[current_print_spec_i]
         while current_card_printed_count < current_card.print_count:
@@ -38,6 +39,13 @@ func _process(_delta: float) -> void:
     
     var next_page = get_next_page_of_card_specs()
     if not next_page.is_empty():
+        _instantiate_cards(next_page)
+    elif current_set_i < sets_to_print.size() - 1:
+        current_set_i += 1
+        current_print_spec_i = 0
+        print_page_number = 0
+        current_card_printed_count = 0
+        next_page = get_next_page_of_card_specs()
         _instantiate_cards(next_page)
     else:
         get_tree().quit()
@@ -72,6 +80,6 @@ func _instantiate_cards(next_page_of_cards: Array):
             $GridContainer.add_child(card)
 
 func capture_card_sheet_image():
-    get_viewport().get_texture().get_image().save_png("res://data/cards/print_sheet_%s.png" % print_page_number)
+    get_viewport().get_texture().get_image().save_png("D:/card_printouts/%s_print_sheet_%s.png" % [sets_to_print[current_set_i].name, print_page_number])
     print("image captured for page %s" % print_page_number)
     print_page_number += 1
