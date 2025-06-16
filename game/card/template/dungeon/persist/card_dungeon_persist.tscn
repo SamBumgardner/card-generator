@@ -9,6 +9,10 @@ default_font_size = 36
 [node name="CardDungeonPersist" instance=ExtResource("1_7txum")]
 script = ExtResource("2_wlosm")
 
+[node name="Typeline" parent="Border/ColorRect/Body" index="0"]
+custom_minimum_size = Vector2(0, 0)
+size_flags_vertical = 4
+
 [node name="PersistCondition" type="VBoxContainer" parent="Border/ColorRect" index="4"]
 layout_mode = 1
 anchors_preset = -1

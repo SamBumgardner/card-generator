@@ -73,6 +73,7 @@ layout_mode = 2
 text = "Wild"
 
 [node name="WildCost" type="Label" parent="HBoxContainer/VBoxContainer4"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "1"
 horizontal_alignment = 1

@@ -8,6 +8,7 @@
 script = ExtResource("2_hkucr")
 
 [node name="BuildCost" parent="Border/ColorRect" index="2" instance=ExtResource("3_p1krt")]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.2

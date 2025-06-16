@@ -15,6 +15,4 @@ func _ready() -> void:
         effect_label.text = card_spec.fields['effect']
         
         if effect_label.text.is_empty():
-            $Border/ColorRect/Body/EffectContainer.hide()
-        else:
-            $Border/ColorRect/Body/EffectContainer.show()
+            effect_label.text = "No effect"

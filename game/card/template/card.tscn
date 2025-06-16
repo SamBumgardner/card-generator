@@ -72,7 +72,9 @@ grow_horizontal = 2
 
 [node name="Typeline" type="Label" parent="Border/ColorRect/Body"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(740, 0)
 layout_mode = 2
+size_flags_vertical = 6
 theme_type_variation = &"HeaderSmall"
 theme_override_font_sizes/font_size = 32
 text = "Subtype 1, Subtype 2, Subtype 3"

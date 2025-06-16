@@ -10,12 +10,15 @@
 script = ExtResource("2_7rtbx")
 
 [node name="RewardsContainer" parent="Border/ColorRect/Body" index="2" instance=ExtResource("3_pj25l")]
+unique_name_in_owner = true
 layout_mode = 2
 
 [node name="ResourcesFooter" parent="Border/ColorRect" index="2" instance=ExtResource("4_1h1ic")]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = -1
 
 [node name="ThreatContainer" parent="Border/ColorRect" index="3" instance=ExtResource("5_bh40y")]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = -1

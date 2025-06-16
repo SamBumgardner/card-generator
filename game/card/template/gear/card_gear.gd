@@ -1,6 +1,6 @@
 class_name CardGear extends Card
 
-@onready var costvalue_label: Label = $ColorRect/CostIcon/CostValue
+@onready var costvalue_label: Label = $%CostValue
 
 func _ready() -> void:
     super()
