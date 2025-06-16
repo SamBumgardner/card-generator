@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://d2qyxww6lykn5"]
+
+[ext_resource type="PackedScene" uid="uid://c8puqu5to4fd4" path="res://card/template/adventurer/card_adventurer.tscn" id="1_4u66h"]
+[ext_resource type="Script" uid="uid://i24dngxgudo6" path="res://card/template/adventurer/card_adventurer_wounded.gd" id="2_4dt7d"]
+
+[node name="CardAdventurerWounded" instance=ExtResource("1_4u66h")]
+script = ExtResource("2_4dt7d")
+
+[node name="Header" parent="Border/ColorRect" index="0"]
+offset_top = 25.0
+
+[node name="Typeline" parent="Border/ColorRect/Body" index="0"]
+custom_minimum_size = Vector2(0, 0)
+size_flags_vertical = 4

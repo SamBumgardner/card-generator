@@ -1,0 +1,86 @@
+[gd_scene load_steps=2 format=3 uid="uid://b4bcleemsns2e"]
+
+[ext_resource type="Script" uid="uid://b83ewfuvqy1nw" path="res://card/template/shared/stats_container.gd" id="1_1m8k0"]
+
+[node name="StatsContainer" type="VBoxContainer"]
+anchors_preset = -1
+anchor_top = 0.1
+anchor_bottom = 0.1
+offset_left = 10.0
+script = ExtResource("1_1m8k0")
+
+[node name="MightContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="Might" type="Label" parent="MightContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+theme_type_variation = &"HeaderMedium"
+theme_override_font_sizes/font_size = 48
+text = "1"
+horizontal_alignment = 1
+
+[node name="StatName" type="Label" parent="MightContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Might"
+
+[node name="AgilityContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="Agility" type="Label" parent="AgilityContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+theme_type_variation = &"HeaderMedium"
+theme_override_font_sizes/font_size = 48
+text = "1"
+horizontal_alignment = 1
+
+[node name="StatName" type="Label" parent="AgilityContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Agility"
+
+[node name="SpiritContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="Spirit" type="Label" parent="SpiritContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+theme_type_variation = &"HeaderMedium"
+theme_override_font_sizes/font_size = 48
+text = "1"
+horizontal_alignment = 1
+
+[node name="StatName" type="Label" parent="SpiritContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Spirit"
+
+[node name="WildContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="Wild" type="Label" parent="WildContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+theme_type_variation = &"HeaderMedium"
+theme_override_font_sizes/font_size = 48
+text = "1"
+horizontal_alignment = 1
+
+[node name="StatName" type="Label" parent="WildContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Wild"

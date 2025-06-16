@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://k3vek4d1ci4t"]
+
+[ext_resource type="Script" uid="uid://ojeprkjhocyt" path="res://card_generator.gd" id="1_uduw0"]
+[ext_resource type="Resource" uid="uid://cfbehk1a3toad" path="res://data/cards/adventurer.tsv" id="2_3rwlo"]
+[ext_resource type="Resource" uid="uid://dq67cew4oeuml" path="res://data/cards/adventurer_wounded.tsv" id="2_skbd6"]
+[ext_resource type="Resource" uid="uid://bfr7a7227ogni" path="res://data/cards/Treasure.tsv" id="4_6i8ov"]
+
+[node name="CardGenerator" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uduw0")
+sets_to_print = Array[Object]([ExtResource("2_3rwlo"), ExtResource("2_skbd6"), ExtResource("4_6i8ov")])
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 0
+offset_top = 80.0
+offset_bottom = 80.0
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 2

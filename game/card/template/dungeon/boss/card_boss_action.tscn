@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://cl5g7644b626e"]
+
+[ext_resource type="PackedScene" uid="uid://dafd36mciqna5" path="res://card/template/card.tscn" id="1_e56p4"]
+[ext_resource type="Script" uid="uid://1rxiwam8pdlh" path="res://card/template/dungeon/boss/card_boss_action.gd" id="2_mxtvd"]
+[ext_resource type="PackedScene" uid="uid://dlq34nrxxum5u" path="res://card/template/shared/reward_container.tscn" id="3_y24rb"]
+[ext_resource type="PackedScene" uid="uid://b4bcleemsns2e" path="res://card/template/shared/stats_container.tscn" id="4_y24rb"]
+
+[node name="CardBossAction" instance=ExtResource("1_e56p4")]
+script = ExtResource("2_mxtvd")
+
+[node name="RewardsContainer" parent="Border/ColorRect/Body" index="2" instance=ExtResource("3_y24rb")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="StatsContainer" parent="Border/ColorRect" index="2" instance=ExtResource("4_y24rb")]
+unique_name_in_owner = true
+layout_mode = 1
+anchor_top = 0.15
+anchor_bottom = 0.15
+offset_left = 0.0

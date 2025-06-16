@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://q37vkuvna1o3"]
+
+[ext_resource type="Script" uid="uid://qroqsnsf45c0" path="res://card/template/shared/threat_container.gd" id="1_jvhel"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pyrct"]
+bg_color = Color(0.75, 0.345, 0.3855, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[node name="ThreatContainer" type="PanelContainer"]
+custom_minimum_size = Vector2(128, 128)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_top = 10.0
+offset_right = -10.0
+grow_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_pyrct")
+script = ExtResource("1_jvhel")
+
+[node name="ThreatValue" type="Label" parent="."]
+layout_mode = 2
+theme_type_variation = &"HeaderLarge"
+theme_override_font_sizes/font_size = 72
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1

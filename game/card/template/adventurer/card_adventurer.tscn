@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://c8puqu5to4fd4"]
+
+[ext_resource type="PackedScene" uid="uid://dafd36mciqna5" path="res://card/template/card.tscn" id="1_433tk"]
+[ext_resource type="Script" uid="uid://ski2w1tspn07" path="res://card/template/adventurer/card_adventurer.gd" id="2_4o5qb"]
+[ext_resource type="PackedScene" uid="uid://b4bcleemsns2e" path="res://card/template/shared/stats_container.tscn" id="3_mu73v"]
+
+[node name="CardAdventurer" instance=ExtResource("1_433tk")]
+script = ExtResource("2_4o5qb")
+
+[node name="StatsContainer" parent="Border/ColorRect" index="2" instance=ExtResource("3_mu73v")]
+unique_name_in_owner = true
+layout_mode = 1
+anchor_top = 0.15
+anchor_bottom = 0.15
+offset_left = 0.0

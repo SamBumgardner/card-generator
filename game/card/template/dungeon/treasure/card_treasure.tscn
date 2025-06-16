@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://yssbg6n4e5of"]
+
+[ext_resource type="PackedScene" uid="uid://dafd36mciqna5" path="res://card/template/card.tscn" id="1_7nv2g"]
+[ext_resource type="Script" uid="uid://b3ti4npjeom5p" path="res://card/template/dungeon/treasure/card_treasure.gd" id="2_gw7fp"]
+[ext_resource type="PackedScene" uid="uid://q37vkuvna1o3" path="res://card/template/shared/threat_container.tscn" id="3_0i115"]
+
+[sub_resource type="Theme" id="Theme_0i115"]
+default_font_size = 48
+
+[node name="CardTreasure" instance=ExtResource("1_7nv2g")]
+script = ExtResource("2_gw7fp")
+
+[node name="ThreatContainer" parent="Border/ColorRect" index="2" instance=ExtResource("3_0i115")]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+
+[node name="FameContainer" type="VBoxContainer" parent="Border/ColorRect" index="3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = SubResource("Theme_0i115")
+
+[node name="FameHeader" type="Label" parent="Border/ColorRect/FameContainer" index="0"]
+layout_mode = 2
+text = "Exhuast to gain:"
+horizontal_alignment = 1
+
+[node name="FameValue" type="Label" parent="Border/ColorRect/FameContainer" index="1"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "X Fame / X Gold"
+horizontal_alignment = 1

@@ -1,0 +1,95 @@
+[gd_scene load_steps=4 format=3 uid="uid://dafd36mciqna5"]
+
+[ext_resource type="Theme" uid="uid://cmqrgxfe1sicp" path="res://new_theme.tres" id="1_0nipv"]
+[ext_resource type="Script" uid="uid://b62kgd0773g1b" path="res://card/template/card.gd" id="1_cvpq3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rjlel"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="Card" type="MarginContainer"]
+custom_minimum_size = Vector2(825, 1125)
+offset_right = 200.0
+offset_bottom = 300.0
+theme = ExtResource("1_0nipv")
+script = ExtResource("1_cvpq3")
+
+[node name="Border" type="ColorRect" parent="."]
+layout_mode = 2
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect" type="ColorRect" parent="Border"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 25.0
+offset_top = 25.0
+offset_right = -25.0
+offset_bottom = -25.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Header" type="VBoxContainer" parent="Border/ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+grow_horizontal = 2
+
+[node name="Name" type="Label" parent="Border/ColorRect/Header"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"HeaderLarge"
+theme_override_font_sizes/font_size = 48
+text = "Card Name"
+horizontal_alignment = 1
+
+[node name="Supertype" type="Label" parent="Border/ColorRect/Header"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
+theme_override_font_sizes/font_size = 48
+text = "Supertype"
+horizontal_alignment = 1
+
+[node name="Body" type="VBoxContainer" parent="Border/ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+
+[node name="Typeline" type="Label" parent="Border/ColorRect/Body"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(740, 0)
+layout_mode = 2
+size_flags_vertical = 6
+theme_type_variation = &"HeaderSmall"
+theme_override_font_sizes/font_size = 32
+text = "Subtype 1, Subtype 2, Subtype 3"
+autowrap_mode = 2
+
+[node name="EffectContainer" type="PanelContainer" parent="Border/ColorRect/Body"]
+custom_minimum_size = Vector2(740, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_rjlel")
+
+[node name="Effect" type="Label" parent="Border/ColorRect/Body/EffectContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 1
+theme_type_variation = &"HeaderSmall"
+theme_override_font_sizes/font_size = 48
+text = "Here's the Card Effect. It may be multiple lines long, and that's okay"
+autowrap_mode = 2
