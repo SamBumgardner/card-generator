@@ -52,6 +52,7 @@ func _import(source_file, save_path, options, r_platform_variants, r_gen_files):
     
     var print_set = CardPrintingSet.new()
     print_set.name = save_path.split("/")[-1].split(".")[0]
+    print_set.back_side = print_set.name.contains("Back")
 
     const REQUIRED_HEADERS: Array[String] = ['supertype']
     var headers = _parse_and_validate_headers(file.get_line(), REQUIRED_HEADERS)

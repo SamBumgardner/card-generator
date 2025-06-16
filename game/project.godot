@@ -24,6 +24,10 @@ window/size/viewport_height=3535
 
 enabled=PackedStringArray("res://addons/card_specification_importer/plugin.cfg")
 
+[global_group]
+
+populates="Implements `populate_info` method"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

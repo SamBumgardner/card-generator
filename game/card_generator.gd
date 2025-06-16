@@ -31,13 +31,32 @@ func get_next_page_of_card_specs() -> Array:
         current_print_spec_i += 1
         current_card_printed_count = 0
     
+    # fill in remaining spots with blanks
+    while next_page.size() > 0 and next_page.size() < cards_per_page:
+        next_page.append(CardSpecification.new())
+        
     return next_page
+
+func invert_card_columns(next_page: Array) -> Array:
+    var inverted_page = []
+    var first_index_of_row = 0
+    while first_index_of_row < cards_per_page:
+        var i = first_index_of_row + cards_per_row - 1
+        while i >= first_index_of_row:
+            if i < next_page.size():
+                inverted_page.append(next_page[i])
+            i -= 1
+        first_index_of_row += cards_per_row
+    return inverted_page
 
 func _process(_delta: float) -> void:
     if waiting:
         return
     
     var next_page = get_next_page_of_card_specs()
+    if sets_to_print[current_set_i].back_side:
+        next_page = invert_card_columns(next_page)
+    
     if not next_page.is_empty():
         _instantiate_cards(next_page)
     elif current_set_i < sets_to_print.size() - 1:
@@ -75,8 +94,9 @@ func _instantiate_cards(next_page_of_cards: Array):
         $GridContainer.get_children().map(func(x): x.queue_free())
         for spec in next_page_of_cards:
             var card_scene: PackedScene = FormatSelector.card_templates[spec.supertype] 
-            var card: Card = card_scene.instantiate()
-            card.card_spec = spec
+            var card = card_scene.instantiate()
+            if card is Card:
+                card.card_spec = spec
             $GridContainer.add_child(card)
 
 func capture_card_sheet_image():

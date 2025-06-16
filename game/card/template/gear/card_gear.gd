@@ -1,8 +1,8 @@
 class_name CardGear extends Card
 
-@onready var costvalue_label: Label = $%CostValue
+@onready var gear_cost: Label = $%GearCost
 
 func _ready() -> void:
     super()
     if card_spec != null:
-        costvalue_label.text = card_spec.fields['gear_token_cost']
+        gear_cost.text = card_spec.fields['gear_token_cost']

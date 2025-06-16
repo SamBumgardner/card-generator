@@ -1,20 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://dyhns2c6smuti"]
+[gd_scene load_steps=4 format=3 uid="uid://dyhns2c6smuti"]
 
 [ext_resource type="PackedScene" uid="uid://dafd36mciqna5" path="res://card/template/card.tscn" id="1_dawb3"]
 [ext_resource type="Script" uid="uid://lswf8ytubmqw" path="res://card/template/gear/card_gear.gd" id="2_n8ret"]
+[ext_resource type="PackedScene" uid="uid://7ho3dx8x0mn0" path="res://card/template/shared/gold_cost_icon.tscn" id="3_gsdsk"]
 
 [node name="CardGear" instance=ExtResource("1_dawb3")]
 script = ExtResource("2_n8ret")
 
-[node name="CostIcon" type="ColorRect" parent="Border/ColorRect" index="2"]
+[node name="GearCostIcon" type="ColorRect" parent="Border/ColorRect" index="2"]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 1
 anchors_preset = -1
-offset_left = 10.0
+anchor_left = 1.0
+anchor_right = 1.0
 offset_top = 10.0
+offset_right = -10.0
+grow_horizontal = 0
 color = Color(0.71, 0.71, 0.71, 1)
 
-[node name="CostValue" type="Label" parent="Border/ColorRect/CostIcon" index="0"]
+[node name="GearCost" type="Label" parent="Border/ColorRect/GearCostIcon" index="0"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -27,3 +31,7 @@ theme_override_font_sizes/font_size = 64
 text = "2"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="PurchaseCostIcon" parent="Border/ColorRect" index="3" instance=ExtResource("3_gsdsk")]
+layout_mode = 1
+anchors_preset = -1

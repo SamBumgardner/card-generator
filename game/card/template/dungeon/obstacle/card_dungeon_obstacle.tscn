@@ -1,8 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://b1n2pxa25mxpb"]
+[gd_scene load_steps=5 format=3 uid="uid://b1n2pxa25mxpb"]
 
 [ext_resource type="PackedScene" uid="uid://cgpx7invpv41f" path="res://card/template/dungeon/card_dungeon.tscn" id="1_vaaml"]
 [ext_resource type="Script" uid="uid://bvopkwpowadrf" path="res://card/template/dungeon/obstacle/card_dungeon_obstacle.gd" id="2_lv88r"]
 [ext_resource type="PackedScene" uid="uid://b4bcleemsns2e" path="res://card/template/shared/stats_container.tscn" id="3_l1kdv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rjlel"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [node name="CardDungeonObstacle" instance=ExtResource("1_vaaml")]
 script = ExtResource("2_lv88r")
@@ -10,6 +22,9 @@ script = ExtResource("2_lv88r")
 [node name="Typeline" parent="Border/ColorRect/Body" index="0"]
 custom_minimum_size = Vector2(0, 0)
 size_flags_vertical = 4
+
+[node name="EffectContainer" parent="Border/ColorRect/Body" index="1"]
+theme_override_styles/panel = SubResource("StyleBoxFlat_rjlel")
 
 [node name="StatsContainer" parent="Border/ColorRect" index="4" instance=ExtResource("3_l1kdv")]
 unique_name_in_owner = true

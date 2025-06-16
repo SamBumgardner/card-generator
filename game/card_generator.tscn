@@ -1,16 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://k3vek4d1ci4t"]
+[gd_scene load_steps=8 format=3 uid="uid://k3vek4d1ci4t"]
 
 [ext_resource type="Script" uid="uid://ojeprkjhocyt" path="res://card_generator.gd" id="1_uduw0"]
-[ext_resource type="Resource" uid="uid://cfbehk1a3toad" path="res://data/cards/adventurer.tsv" id="2_3rwlo"]
 [ext_resource type="Script" uid="uid://4xetil733gdj" path="res://addons/card_specification_importer/importer/resources/card_printing_set.gd" id="2_7thvl"]
-[ext_resource type="Resource" uid="uid://dq67cew4oeuml" path="res://data/cards/adventurer_wounded.tsv" id="2_skbd6"]
-[ext_resource type="Resource" uid="uid://bfr7a7227ogni" path="res://data/cards/Treasure.tsv" id="4_6i8ov"]
-[ext_resource type="Resource" uid="uid://dv82du7c26dx4" path="res://data/cards/action.tsv" id="6_0102l"]
-[ext_resource type="Resource" uid="uid://5fnwamfbociu" path="res://data/cards/boss.tsv" id="7_le7gv"]
-[ext_resource type="Resource" uid="uid://dycbge2jmi3wk" path="res://data/cards/building.tsv" id="8_2weon"]
-[ext_resource type="Resource" uid="uid://cx1w7huesyr0u" path="res://data/cards/dungeon_obstacle.tsv" id="9_meiyy"]
-[ext_resource type="Resource" uid="uid://cns53in8nwjyl" path="res://data/cards/dungeon_persist.tsv" id="10_862ig"]
-[ext_resource type="Resource" uid="uid://drkwjbt8vhxme" path="res://data/cards/gear.tsv" id="11_qhbei"]
+[ext_resource type="Resource" uid="uid://bsmc2k6ivtmsp" path="res://data/cards/v2/Town & Dungeon Card Spec v2 - Gear.tsv" id="3_bwpfb"]
+[ext_resource type="Resource" uid="uid://b7bj0e58gjbo8" path="res://data/cards/v2/Town & Dungeon Card Spec v2 - Action.tsv" id="4_3rwlo"]
+[ext_resource type="Resource" uid="uid://cs45vv0ifwxu" path="res://data/cards/v2/Town & Dungeon Card Spec v2 - Building.tsv" id="5_6i8ov"]
+[ext_resource type="Resource" uid="uid://r4eno0oaed6j" path="res://data/cards/v2/Town & Dungeon Card Spec v2 - Adventurer.tsv" id="6_lqhqu"]
+[ext_resource type="Resource" uid="uid://cckf1w865rdlk" path="res://data/cards/v2/Town & Dungeon Card Spec v2 - AdventurerBack.tsv" id="7_lk0e7"]
 
 [node name="CardGenerator" type="Control"]
 layout_mode = 3
@@ -20,7 +16,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_uduw0")
-sets_to_print = Array[ExtResource("2_7thvl")]([ExtResource("2_3rwlo"), ExtResource("2_skbd6"), ExtResource("4_6i8ov"), ExtResource("6_0102l"), ExtResource("7_le7gv"), ExtResource("8_2weon"), ExtResource("9_meiyy"), ExtResource("10_862ig"), ExtResource("11_qhbei")])
+sets_to_print = Array[ExtResource("2_7thvl")]([ExtResource("3_bwpfb"), ExtResource("4_3rwlo"), ExtResource("5_6i8ov"), ExtResource("6_lqhqu"), ExtResource("7_lk0e7")])
 
 [node name="GridContainer" type="GridContainer" parent="."]
 layout_mode = 0

@@ -1,7 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://cthgml6yk2cbq"]
+[gd_scene load_steps=4 format=3 uid="uid://cthgml6yk2cbq"]
 
 [ext_resource type="PackedScene" uid="uid://dafd36mciqna5" path="res://card/template/card.tscn" id="1_kb7ca"]
 [ext_resource type="Script" uid="uid://bak8rufwfp1kc" path="res://card/template/action/card_action.gd" id="2_wff7r"]
+[ext_resource type="PackedScene" uid="uid://7ho3dx8x0mn0" path="res://card/template/shared/gold_cost_icon.tscn" id="3_1njmw"]
 
 [node name="Card" instance=ExtResource("1_kb7ca")]
 script = ExtResource("2_wff7r")
+
+[node name="PurchaseCostIcon" parent="Border/ColorRect" index="2" instance=ExtResource("3_1njmw")]
+layout_mode = 1
+anchors_preset = -1
+offset_right = 128.0
+offset_bottom = 128.0

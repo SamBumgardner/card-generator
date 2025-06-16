@@ -1,7 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://3o655dk128vj"]
+[gd_scene load_steps=5 format=3 uid="uid://3o655dk128vj"]
 
 [ext_resource type="PackedScene" uid="uid://cgpx7invpv41f" path="res://card/template/dungeon/card_dungeon.tscn" id="1_7txum"]
 [ext_resource type="Script" uid="uid://gih7usq3r8bp" path="res://card/template/dungeon/persist/card_dungeon_persist.gd" id="2_wlosm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rjlel"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [sub_resource type="Theme" id="Theme_wlosm"]
 default_font_size = 36
@@ -12,6 +24,9 @@ script = ExtResource("2_wlosm")
 [node name="Typeline" parent="Border/ColorRect/Body" index="0"]
 custom_minimum_size = Vector2(0, 0)
 size_flags_vertical = 4
+
+[node name="EffectContainer" parent="Border/ColorRect/Body" index="1"]
+theme_override_styles/panel = SubResource("StyleBoxFlat_rjlel")
 
 [node name="PersistCondition" type="VBoxContainer" parent="Border/ColorRect" index="4"]
 layout_mode = 1

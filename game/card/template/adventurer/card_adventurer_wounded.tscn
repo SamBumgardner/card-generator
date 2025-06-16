@@ -1,7 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://d2qyxww6lykn5"]
+[gd_scene load_steps=4 format=3 uid="uid://d2qyxww6lykn5"]
 
 [ext_resource type="PackedScene" uid="uid://c8puqu5to4fd4" path="res://card/template/adventurer/card_adventurer.tscn" id="1_4u66h"]
 [ext_resource type="Script" uid="uid://i24dngxgudo6" path="res://card/template/adventurer/card_adventurer_wounded.gd" id="2_4dt7d"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rjlel"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [node name="CardAdventurerWounded" instance=ExtResource("1_4u66h")]
 script = ExtResource("2_4dt7d")
@@ -12,3 +24,6 @@ offset_top = 25.0
 [node name="Typeline" parent="Border/ColorRect/Body" index="0"]
 custom_minimum_size = Vector2(0, 0)
 size_flags_vertical = 4
+
+[node name="EffectContainer" parent="Border/ColorRect/Body" index="1"]
+theme_override_styles/panel = SubResource("StyleBoxFlat_rjlel")

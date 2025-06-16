@@ -16,3 +16,14 @@ func _ready() -> void:
         
         if effect_label.text.is_empty():
             effect_label.text = "No effect"
+        
+        recursive_populate(self, card_spec)
+        
+        
+static func recursive_populate(current_node: Node, card_spec: CardSpecification) -> void:
+    var children = current_node.get_children()
+    for child in children:
+        recursive_populate(child, card_spec)
+    
+    if current_node.is_in_group("populates"):
+        current_node.populate_info(card_spec)

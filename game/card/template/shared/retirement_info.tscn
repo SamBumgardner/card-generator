@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://bxwtq3yppijie"]
+
+[ext_resource type="StyleBox" uid="uid://dnd0jv2olbxdn" path="res://basic_text_box.tres" id="1_0wtwp"]
+[ext_resource type="Script" uid="uid://q5qcnuupr5cq" path="res://card/template/shared/retirement_info.gd" id="1_77qvj"]
+
+[node name="RetirementInfo" type="VBoxContainer" groups=["populates"]]
+script = ExtResource("1_77qvj")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="RetirementCostHeader" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
+theme_override_font_sizes/font_size = 32
+text = "Retirement Cost:"
+
+[node name="RetirementCost" type="Label" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
+theme_override_font_sizes/font_size = 32
+text = "Blah"
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("1_0wtwp")
+
+[node name="RetirementEffect" type="Label" parent="PanelContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Retirement Effect"
+autowrap_mode = 2

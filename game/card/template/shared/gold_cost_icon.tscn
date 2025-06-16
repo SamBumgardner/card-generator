@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://7ho3dx8x0mn0"]
+
+[ext_resource type="Script" uid="uid://di2kywuvhy2g5" path="res://card/template/shared/gold_cost_icon.gd" id="1_yobnw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s1x8e"]
+bg_color = Color(1, 0.843137, 0, 1)
+corner_radius_top_left = 200
+corner_radius_top_right = 200
+corner_radius_bottom_right = 200
+corner_radius_bottom_left = 200
+
+[node name="PurchaseCostIcon" type="Panel" groups=["populates"]]
+custom_minimum_size = Vector2(128, 128)
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 138.0
+offset_bottom = 138.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_s1x8e")
+script = ExtResource("1_yobnw")
+
+[node name="GoldCost" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"HeaderMedium"
+theme_override_font_sizes/font_size = 64
+text = "2"
+horizontal_alignment = 1
+vertical_alignment = 1

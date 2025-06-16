@@ -2,18 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://cmqrgxfe1sicp" path="res://new_theme.tres" id="1_0nipv"]
 [ext_resource type="Script" uid="uid://b62kgd0773g1b" path="res://card/template/card.gd" id="1_cvpq3"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rjlel"]
-bg_color = Color(1, 1, 1, 1)
-border_width_left = 10
-border_width_top = 10
-border_width_right = 10
-border_width_bottom = 10
-border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
+[ext_resource type="StyleBox" uid="uid://dnd0jv2olbxdn" path="res://basic_text_box.tres" id="3_r87rg"]
 
 [node name="Card" type="MarginContainer"]
 custom_minimum_size = Vector2(825, 1125)
@@ -83,7 +72,7 @@ autowrap_mode = 2
 [node name="EffectContainer" type="PanelContainer" parent="Border/ColorRect/Body"]
 custom_minimum_size = Vector2(740, 0)
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_rjlel")
+theme_override_styles/panel = ExtResource("3_r87rg")
 
 [node name="Effect" type="Label" parent="Border/ColorRect/Body/EffectContainer"]
 unique_name_in_owner = true
