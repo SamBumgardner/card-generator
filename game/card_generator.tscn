@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://k3vek4d1ci4t"]
+[gd_scene load_steps=9 format=3 uid="uid://k3vek4d1ci4t"]
 
 [ext_resource type="Script" uid="uid://ojeprkjhocyt" path="res://card_generator.gd" id="1_uduw0"]
 [ext_resource type="Script" uid="uid://4xetil733gdj" path="res://addons/card_specification_importer/importer/resources/card_printing_set.gd" id="2_7thvl"]
@@ -7,6 +7,7 @@
 [ext_resource type="Resource" uid="uid://cs45vv0ifwxu" path="res://data/cards/v2/Town & Dungeon Card Spec v2 - Building.tsv" id="5_6i8ov"]
 [ext_resource type="Resource" uid="uid://r4eno0oaed6j" path="res://data/cards/v2/Town & Dungeon Card Spec v2 - Adventurer.tsv" id="6_lqhqu"]
 [ext_resource type="Resource" uid="uid://cckf1w865rdlk" path="res://data/cards/v2/Town & Dungeon Card Spec v2 - AdventurerBack.tsv" id="7_lk0e7"]
+[ext_resource type="Resource" uid="uid://wojsanikll0q" path="res://data/cards/v2/Town & Dungeon Card Spec v2 - Midboss.tsv" id="8_lk0e7"]
 
 [node name="CardGenerator" type="Control"]
 layout_mode = 3
@@ -16,7 +17,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_uduw0")
-sets_to_print = Array[ExtResource("2_7thvl")]([ExtResource("3_bwpfb"), ExtResource("4_3rwlo"), ExtResource("5_6i8ov"), ExtResource("6_lqhqu"), ExtResource("7_lk0e7")])
+sets_to_print = Array[ExtResource("2_7thvl")]([ExtResource("3_bwpfb"), ExtResource("4_3rwlo"), ExtResource("5_6i8ov"), ExtResource("6_lqhqu"), ExtResource("7_lk0e7"), ExtResource("8_lk0e7")])
 
 [node name="GridContainer" type="GridContainer" parent="."]
 layout_mode = 0

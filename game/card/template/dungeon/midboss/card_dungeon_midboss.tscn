@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dcm11wr4yi2d0"]
+
+[ext_resource type="PackedScene" uid="uid://cgpx7invpv41f" path="res://card/template/dungeon/card_dungeon.tscn" id="1_3r353"]
+[ext_resource type="Script" uid="uid://bmujoi37w8q24" path="res://card/template/dungeon/midboss/card_dungeon_midboss.gd" id="2_66tun"]
+[ext_resource type="PackedScene" uid="uid://1ydo5lq8aodf" path="res://card/template/dungeon/midboss/split_stats_container.tscn" id="2_eciiv"]
+
+[node name="CardDungeonMidboss" instance=ExtResource("1_3r353")]
+script = ExtResource("2_66tun")
+
+[node name="Body" parent="Border/ColorRect" index="1"]
+anchor_top = 0.15
+anchor_bottom = 0.15
+
+[node name="Typeline" parent="Border/ColorRect/Body" index="0"]
+horizontal_alignment = 1
+
+[node name="SplitStatsContainer" parent="Border/ColorRect/Body" index="1" instance=ExtResource("2_eciiv")]
+unique_name_in_owner = true
+layout_mode = 2

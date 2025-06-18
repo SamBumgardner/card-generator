@@ -10,5 +10,6 @@ const card_templates: Dictionary = {
     'Dungeon Persist': preload("res://card/template/dungeon/persist/card_dungeon_persist.tscn"),
     'Treasure': preload("res://card/template/dungeon/treasure/card_treasure.tscn"),
     'Boss Action': preload("res://card/template/dungeon/boss/card_boss_action.tscn"),
+    'Midboss': preload("res://card/template/dungeon/midboss/card_dungeon_midboss.tscn"),
     '': preload("res://card/template/blank.tscn")
 }
