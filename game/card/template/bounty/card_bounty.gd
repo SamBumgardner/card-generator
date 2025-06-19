@@ -17,6 +17,9 @@ func _ready() -> void:
         $%Reward1.text = card_spec.fields['reward_first']
         $%Reward2.text = card_spec.fields['reward_second']
         $%Reward3.text = card_spec.fields['reward_last']
+        
+        $%DungeonSize.text = card_spec.fields['dungeon_size_limit']
+        $%Health.text = card_spec.fields['max_hp']
      
 func generate_player_actions(card_spec: CardSpecification) -> void:
     var player_actions: PackedStringArray = (card_spec.fields['weaknesses'] as String).split('|')

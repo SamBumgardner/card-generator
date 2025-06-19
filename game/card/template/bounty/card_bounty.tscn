@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dypmjcm1oecd5"]
+[gd_scene load_steps=9 format=3 uid="uid://dypmjcm1oecd5"]
 
 [ext_resource type="Theme" uid="uid://cmqrgxfe1sicp" path="res://new_theme.tres" id="1_ber2o"]
 [ext_resource type="Script" uid="uid://chvjkc2j0atax" path="res://card/template/bounty/card_bounty.gd" id="2_08317"]
@@ -12,6 +12,23 @@ bg_color = Color(1, 0.875374, 0.861498, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gvaau"]
 bg_color = Color(1, 0.966532, 0.721097, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6rgdi"]
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0brfx"]
+bg_color = Color(1, 0.67, 0.725, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 200
+corner_radius_bottom_left = 200
 
 [node name="Card" type="MarginContainer"]
 custom_minimum_size = Vector2(2475, 1687.5)
@@ -231,3 +248,35 @@ theme_type_variation = &"HeaderSmall"
 theme_override_font_sizes/font_size = 48
 text = "Here's the Card Effect. It may be multiple lines long, and that's okay"
 autowrap_mode = 2
+
+[node name="DungeonSizeIcon" type="PanelContainer" parent="Border/ColorRect"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_6rgdi")
+
+[node name="DungeonSize" type="Label" parent="Border/ColorRect/DungeonSizeIcon"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 128
+text = "10"
+horizontal_alignment = 1
+
+[node name="BountyHealthIcon" type="PanelContainer" parent="Border/ColorRect"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -200.0
+offset_bottom = 200.0
+grow_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_0brfx")
+
+[node name="Health" type="Label" parent="Border/ColorRect/BountyHealthIcon"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 128
+text = "10"
+horizontal_alignment = 1
