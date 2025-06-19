@@ -14,6 +14,16 @@ var skipped_first_frame: bool = false
 var waiting: bool = false
 
 func _ready():
+    decide_cards_per_page(sets_to_print[current_set_i])
+
+func decide_cards_per_page(active_printing_set: CardPrintingSet) -> void:
+    if active_printing_set.printing_specs.is_empty():
+        return
+    
+    var card_scene = FormatSelector.card_templates[active_printing_set.printing_specs[0].card_spec.supertype]
+    var representative_card = (card_scene.instantiate() as Card)
+    cards_per_page = representative_card.cards_per_page
+    cards_per_row = representative_card.cards_per_row
     $GridContainer.columns = cards_per_row
 
 func get_next_page_of_card_specs() -> Array:
@@ -61,6 +71,7 @@ func _process(_delta: float) -> void:
         _instantiate_cards(next_page)
     elif current_set_i < sets_to_print.size() - 1:
         current_set_i += 1
+        decide_cards_per_page(sets_to_print[current_set_i])
         current_print_spec_i = 0
         print_page_number = 0
         current_card_printed_count = 0

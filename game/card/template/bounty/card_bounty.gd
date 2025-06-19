@@ -1,10 +1,8 @@
-class_name CardBounty extends MarginContainer
+class_name CardBounty extends Card
 
-@export var card_spec: CardSpecification
-
-@onready var name_label: Label = $%Name
-@onready var supertype_label: Label = $%Supertype
-@onready var typeline_label: Label = $%Typeline
+func _init():
+    cards_per_row = 1
+    cards_per_page = 2
 
 func _ready() -> void:
     if card_spec != null:
@@ -44,7 +42,7 @@ func generate_bounty_actions(card_spec: CardSpecification) -> void:
         for stat_requirement in stat_requirement_strings:
             for i in stat_names.size():
                 if stat_requirement.contains(stat_names[i]):
-                    stat_requirement[i] = int(stat_requirement)
+                    stat_requirement_values[i] = int(stat_requirement)
         
         var bounty_action_scene = (load("res://card/template/bounty/bounty_action.tscn") as PackedScene).instantiate()
         $%BountyActions.add_child(bounty_action_scene)

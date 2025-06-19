@@ -5,9 +5,13 @@ class_name Card extends MarginContainer
 @onready var name_label: Label = $%Name
 @onready var supertype_label: Label = $%Supertype
 @onready var typeline_label: Label = $%Typeline
-@onready var effect_label: Label = $%Effect
+var effect_label: Label
+
+var cards_per_row = 3
+var cards_per_page = 9
 
 func _ready() -> void:
+    effect_label = $%Effect
     if card_spec != null:
         name_label.text = card_spec.fields['name']
         supertype_label.text = card_spec.supertype

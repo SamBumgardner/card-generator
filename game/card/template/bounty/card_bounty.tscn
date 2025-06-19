@@ -1,10 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://dypmjcm1oecd5"]
+[gd_scene load_steps=7 format=3 uid="uid://dypmjcm1oecd5"]
 
 [ext_resource type="Theme" uid="uid://cmqrgxfe1sicp" path="res://new_theme.tres" id="1_ber2o"]
 [ext_resource type="Script" uid="uid://chvjkc2j0atax" path="res://card/template/bounty/card_bounty.gd" id="2_08317"]
-[ext_resource type="PackedScene" uid="uid://b1l5fw2kk6bqr" path="res://card/template/bounty/player_action.tscn" id="3_08317"]
 [ext_resource type="StyleBox" uid="uid://dnd0jv2olbxdn" path="res://basic_text_box.tres" id="3_xqp3n"]
-[ext_resource type="PackedScene" uid="uid://b1ixwx8rss4e6" path="res://card/template/bounty/bounty_action.tscn" id="4_08317"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_08317"]
 bg_color = Color(0.812974, 0.966912, 1, 1)
@@ -98,9 +96,6 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="PlayerAction" parent="Border/ColorRect/VBoxContainer/Body/PlayerActionsContainer/VBoxContainer/PlayerActions" instance=ExtResource("3_08317")]
-layout_mode = 2
-
 [node name="BountyActionsContainer" type="PanelContainer" parent="Border/ColorRect/VBoxContainer/Body"]
 layout_mode = 2
 size_flags_vertical = 0
@@ -118,15 +113,6 @@ text = "Bounty Actions:"
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
-
-[node name="BountyAction" parent="Border/ColorRect/VBoxContainer/Body/BountyActionsContainer/VBoxContainer/BountyActions" instance=ExtResource("4_08317")]
-layout_mode = 2
-
-[node name="BountyAction2" parent="Border/ColorRect/VBoxContainer/Body/BountyActionsContainer/VBoxContainer/BountyActions" instance=ExtResource("4_08317")]
-layout_mode = 2
-
-[node name="BountyAction3" parent="Border/ColorRect/VBoxContainer/Body/BountyActionsContainer/VBoxContainer/BountyActions" instance=ExtResource("4_08317")]
-layout_mode = 2
 
 [node name="RewardsContainer" type="PanelContainer" parent="Border/ColorRect/VBoxContainer/Body"]
 layout_mode = 2

@@ -11,5 +11,6 @@ const card_templates: Dictionary = {
     'Treasure': preload("res://card/template/dungeon/treasure/card_treasure.tscn"),
     'Boss Action': preload("res://card/template/dungeon/boss/card_boss_action.tscn"),
     'Midboss': preload("res://card/template/dungeon/midboss/card_dungeon_midboss.tscn"),
+    'Bounty': preload("res://card/template/bounty/card_bounty.tscn"),
     '': preload("res://card/template/blank.tscn")
 }
