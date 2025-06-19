@@ -1,12 +1,22 @@
-[gd_scene load_steps=5 format=3 uid="uid://dypmjcm1oecd5"]
+[gd_scene load_steps=9 format=3 uid="uid://dypmjcm1oecd5"]
 
 [ext_resource type="Theme" uid="uid://cmqrgxfe1sicp" path="res://new_theme.tres" id="1_ber2o"]
 [ext_resource type="Script" uid="uid://b62kgd0773g1b" path="res://card/template/card.gd" id="2_n7a3g"]
+[ext_resource type="PackedScene" uid="uid://b1l5fw2kk6bqr" path="res://card/template/bounty/player_action.tscn" id="3_08317"]
 [ext_resource type="StyleBox" uid="uid://dnd0jv2olbxdn" path="res://basic_text_box.tres" id="3_xqp3n"]
-[ext_resource type="PackedScene" uid="uid://b4bcleemsns2e" path="res://card/template/shared/stats_container.tscn" id="4_6rgdi"]
+[ext_resource type="PackedScene" uid="uid://b1ixwx8rss4e6" path="res://card/template/bounty/bounty_action.tscn" id="4_08317"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_08317"]
+bg_color = Color(0.812974, 0.966912, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pt2ch"]
+bg_color = Color(1, 0.875374, 0.861498, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gvaau"]
+bg_color = Color(1, 0.966532, 0.721097, 1)
 
 [node name="Card" type="MarginContainer"]
-custom_minimum_size = Vector2(1650, 1125)
+custom_minimum_size = Vector2(2475, 1687.5)
 offset_right = 200.0
 offset_bottom = 300.0
 theme = ExtResource("1_ber2o")
@@ -17,6 +27,7 @@ layout_mode = 2
 color = Color(0, 0, 0, 1)
 
 [node name="ColorRect" type="ColorRect" parent="Border"]
+clip_contents = true
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -28,14 +39,17 @@ offset_bottom = -25.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Header" type="VBoxContainer" parent="Border/ColorRect"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Border/ColorRect"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.5
-anchor_right = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 
-[node name="Supertype" type="Label" parent="Border/ColorRect/Header"]
+[node name="Header" type="VBoxContainer" parent="Border/ColorRect/VBoxContainer"]
+layout_mode = 2
+
+[node name="Supertype" type="Label" parent="Border/ColorRect/VBoxContainer/Header"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_type_variation = &"HeaderSmall"
@@ -43,244 +57,100 @@ theme_override_font_sizes/font_size = 48
 text = "Supertype"
 horizontal_alignment = 1
 
-[node name="Name" type="Label" parent="Border/ColorRect/Header"]
+[node name="Name" type="Label" parent="Border/ColorRect/VBoxContainer/Header"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_type_variation = &"HeaderLarge"
-theme_override_font_sizes/font_size = 48
+theme_override_font_sizes/font_size = 86
 text = "Card Name"
 horizontal_alignment = 1
 
-[node name="Typeline" type="Label" parent="Border/ColorRect/Header"]
+[node name="Typeline" type="Label" parent="Border/ColorRect/VBoxContainer/Header"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(740, 0)
 layout_mode = 2
 size_flags_vertical = 6
 theme_type_variation = &"HeaderSmall"
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 48
 text = "Subtype 1, Subtype 2, Subtype 3"
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="Body" type="VBoxContainer" parent="Border/ColorRect"]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.2
-anchor_right = 1.0
-anchor_bottom = 0.2
-offset_left = 10.0
-offset_right = -10.0
-grow_horizontal = 2
+[node name="Body" type="VBoxContainer" parent="Border/ColorRect/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
 
-[node name="PlayerActionsContainer" type="VBoxContainer" parent="Border/ColorRect/Body"]
+[node name="PlayerActionsContainer" type="PanelContainer" parent="Border/ColorRect/VBoxContainer/Body"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_08317")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Border/ColorRect/VBoxContainer/Body/PlayerActionsContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Border/ColorRect/Body/PlayerActionsContainer"]
+[node name="PlayerActionsHeader" type="Label" parent="Border/ColorRect/VBoxContainer/Body/PlayerActionsContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 48
 text = "Player Actions:"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Border/ColorRect/Body/PlayerActionsContainer"]
+[node name="PlayerActions" type="HBoxContainer" parent="Border/ColorRect/VBoxContainer/Body/PlayerActionsContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="PlayerAction" parent="Border/ColorRect/VBoxContainer/Body/PlayerActionsContainer/VBoxContainer/PlayerActions" instance=ExtResource("3_08317")]
 layout_mode = 2
 
-[node name="PlayerAction" type="PanelContainer" parent="Border/ColorRect/Body/PlayerActionsContainer/HBoxContainer"]
-custom_minimum_size = Vector2(740, 0)
+[node name="BountyActionsContainer" type="PanelContainer" parent="Border/ColorRect/VBoxContainer/Body"]
 layout_mode = 2
-theme_override_styles/panel = ExtResource("3_xqp3n")
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_pt2ch")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Border/ColorRect/Body/PlayerActionsContainer/HBoxContainer/PlayerAction"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Border/ColorRect/VBoxContainer/Body/BountyActionsContainer"]
 layout_mode = 2
 
-[node name="Cost" type="Label" parent="Border/ColorRect/Body/PlayerActionsContainer/HBoxContainer/PlayerAction/VBoxContainer"]
+[node name="BountyActionsHeader" type="Label" parent="Border/ColorRect/VBoxContainer/Body/BountyActionsContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 1
-theme_type_variation = &"HeaderSmall"
 theme_override_font_sizes/font_size = 48
-text = "Cost:"
-autowrap_mode = 2
+text = "Bounty Actions:"
 
-[node name="Effect" type="Label" parent="Border/ColorRect/Body/PlayerActionsContainer/HBoxContainer/PlayerAction/VBoxContainer"]
+[node name="BountyActions" type="HBoxContainer" parent="Border/ColorRect/VBoxContainer/Body/BountyActionsContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 1
-theme_type_variation = &"HeaderSmall"
+size_flags_horizontal = 4
+
+[node name="BountyAction" parent="Border/ColorRect/VBoxContainer/Body/BountyActionsContainer/VBoxContainer/BountyActions" instance=ExtResource("4_08317")]
+layout_mode = 2
+
+[node name="BountyAction2" parent="Border/ColorRect/VBoxContainer/Body/BountyActionsContainer/VBoxContainer/BountyActions" instance=ExtResource("4_08317")]
+layout_mode = 2
+
+[node name="BountyAction3" parent="Border/ColorRect/VBoxContainer/Body/BountyActionsContainer/VBoxContainer/BountyActions" instance=ExtResource("4_08317")]
+layout_mode = 2
+
+[node name="RewardsContainer" type="PanelContainer" parent="Border/ColorRect/VBoxContainer/Body"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_gvaau")
+
+[node name="MarginContainer" type="MarginContainer" parent="Border/ColorRect/VBoxContainer/Body/RewardsContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Border/ColorRect/VBoxContainer/Body/RewardsContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="TownRewardsHeader" type="Label" parent="Border/ColorRect/VBoxContainer/Body/RewardsContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
 theme_override_font_sizes/font_size = 48
-text = "Here's the Card Effect. It may be multiple lines long, and that's okay"
-autowrap_mode = 2
-
-[node name="PlayerAction2" type="PanelContainer" parent="Border/ColorRect/Body/PlayerActionsContainer/HBoxContainer"]
-custom_minimum_size = Vector2(740, 0)
-layout_mode = 2
-theme_override_styles/panel = ExtResource("3_xqp3n")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Border/ColorRect/Body/PlayerActionsContainer/HBoxContainer/PlayerAction2"]
-layout_mode = 2
-
-[node name="Cost" type="Label" parent="Border/ColorRect/Body/PlayerActionsContainer/HBoxContainer/PlayerAction2/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 1
-theme_type_variation = &"HeaderSmall"
-theme_override_font_sizes/font_size = 48
-text = "Cost:"
-autowrap_mode = 2
-
-[node name="Effect" type="Label" parent="Border/ColorRect/Body/PlayerActionsContainer/HBoxContainer/PlayerAction2/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 1
-theme_type_variation = &"HeaderSmall"
-theme_override_font_sizes/font_size = 48
-text = "Here's the Card Effect. It may be multiple lines long, and that's okay"
-autowrap_mode = 2
-
-[node name="PlayerAction3" type="PanelContainer" parent="Border/ColorRect/Body/PlayerActionsContainer/HBoxContainer"]
-visible = false
-custom_minimum_size = Vector2(740, 0)
-layout_mode = 2
-theme_override_styles/panel = ExtResource("3_xqp3n")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Border/ColorRect/Body/PlayerActionsContainer/HBoxContainer/PlayerAction3"]
-layout_mode = 2
-
-[node name="Cost" type="Label" parent="Border/ColorRect/Body/PlayerActionsContainer/HBoxContainer/PlayerAction3/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 1
-theme_type_variation = &"HeaderSmall"
-theme_override_font_sizes/font_size = 48
-text = "Cost:"
-autowrap_mode = 2
-
-[node name="Effect" type="Label" parent="Border/ColorRect/Body/PlayerActionsContainer/HBoxContainer/PlayerAction3/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 1
-theme_type_variation = &"HeaderSmall"
-theme_override_font_sizes/font_size = 48
-text = "Here's the Card Effect. It may be multiple lines long, and that's okay"
-autowrap_mode = 2
-
-[node name="PlayerAction4" type="PanelContainer" parent="Border/ColorRect/Body/PlayerActionsContainer/HBoxContainer"]
-visible = false
-custom_minimum_size = Vector2(740, 0)
-layout_mode = 2
-theme_override_styles/panel = ExtResource("3_xqp3n")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Border/ColorRect/Body/PlayerActionsContainer/HBoxContainer/PlayerAction4"]
-layout_mode = 2
-
-[node name="Cost" type="Label" parent="Border/ColorRect/Body/PlayerActionsContainer/HBoxContainer/PlayerAction4/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 1
-theme_type_variation = &"HeaderSmall"
-theme_override_font_sizes/font_size = 48
-text = "Cost:"
-autowrap_mode = 2
-
-[node name="Effect" type="Label" parent="Border/ColorRect/Body/PlayerActionsContainer/HBoxContainer/PlayerAction4/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 1
-theme_type_variation = &"HeaderSmall"
-theme_override_font_sizes/font_size = 48
-text = "Here's the Card Effect. It may be multiple lines long, and that's okay"
-autowrap_mode = 2
-
-[node name="BountyCounterattackContainer" type="VBoxContainer" parent="Border/ColorRect/Body"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="Border/ColorRect/Body/BountyCounterattackContainer"]
-layout_mode = 2
-text = "Bounty's Counterattack"
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Border/ColorRect/Body/BountyCounterattackContainer"]
-layout_mode = 2
-
-[node name="Counterattack" type="PanelContainer" parent="Border/ColorRect/Body/BountyCounterattackContainer/HBoxContainer"]
-custom_minimum_size = Vector2(740, 0)
-layout_mode = 2
-theme_override_styles/panel = ExtResource("3_xqp3n")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Border/ColorRect/Body/BountyCounterattackContainer/HBoxContainer/Counterattack"]
-layout_mode = 2
-
-[node name="Cost" type="Label" parent="Border/ColorRect/Body/BountyCounterattackContainer/HBoxContainer/Counterattack/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 1
-theme_type_variation = &"HeaderSmall"
-theme_override_font_sizes/font_size = 48
-text = "Cost:"
-autowrap_mode = 2
-
-[node name="StatsContainer" parent="Border/ColorRect/Body/BountyCounterattackContainer/HBoxContainer/Counterattack/VBoxContainer" instance=ExtResource("4_6rgdi")]
-layout_mode = 2
-
-[node name="Counterattack2" type="PanelContainer" parent="Border/ColorRect/Body/BountyCounterattackContainer/HBoxContainer"]
-custom_minimum_size = Vector2(740, 0)
-layout_mode = 2
-theme_override_styles/panel = ExtResource("3_xqp3n")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Border/ColorRect/Body/BountyCounterattackContainer/HBoxContainer/Counterattack2"]
-layout_mode = 2
-
-[node name="Cost" type="Label" parent="Border/ColorRect/Body/BountyCounterattackContainer/HBoxContainer/Counterattack2/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 1
-theme_type_variation = &"HeaderSmall"
-theme_override_font_sizes/font_size = 48
-text = "Cost:"
-autowrap_mode = 2
-
-[node name="StatsContainer" parent="Border/ColorRect/Body/BountyCounterattackContainer/HBoxContainer/Counterattack2/VBoxContainer" instance=ExtResource("4_6rgdi")]
-layout_mode = 2
-
-[node name="Counterattack3" type="PanelContainer" parent="Border/ColorRect/Body/BountyCounterattackContainer/HBoxContainer"]
-visible = false
-custom_minimum_size = Vector2(740, 0)
-layout_mode = 2
-theme_override_styles/panel = ExtResource("3_xqp3n")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Border/ColorRect/Body/BountyCounterattackContainer/HBoxContainer/Counterattack3"]
-layout_mode = 2
-
-[node name="Cost" type="Label" parent="Border/ColorRect/Body/BountyCounterattackContainer/HBoxContainer/Counterattack3/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 1
-theme_type_variation = &"HeaderSmall"
-theme_override_font_sizes/font_size = 48
-text = "Cost:"
-autowrap_mode = 2
-
-[node name="StatsContainer" parent="Border/ColorRect/Body/BountyCounterattackContainer/HBoxContainer/Counterattack3/VBoxContainer" instance=ExtResource("4_6rgdi")]
-layout_mode = 2
-
-[node name="Counterattack4" type="PanelContainer" parent="Border/ColorRect/Body/BountyCounterattackContainer/HBoxContainer"]
-visible = false
-custom_minimum_size = Vector2(740, 0)
-layout_mode = 2
-theme_override_styles/panel = ExtResource("3_xqp3n")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Border/ColorRect/Body/BountyCounterattackContainer/HBoxContainer/Counterattack4"]
-layout_mode = 2
-
-[node name="Cost" type="Label" parent="Border/ColorRect/Body/BountyCounterattackContainer/HBoxContainer/Counterattack4/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 1
-theme_type_variation = &"HeaderSmall"
-theme_override_font_sizes/font_size = 48
-text = "Cost:"
-autowrap_mode = 2
-
-[node name="StatsContainer" parent="Border/ColorRect/Body/BountyCounterattackContainer/HBoxContainer/Counterattack4/VBoxContainer" instance=ExtResource("4_6rgdi")]
-layout_mode = 2
-
-[node name="RewardsContainer" type="VBoxContainer" parent="Border/ColorRect/Body"]
-layout_mode = 2
-
-[node name="Header" type="Label" parent="Border/ColorRect/Body/RewardsContainer"]
-layout_mode = 2
 text = "Town rewards:"
 
-[node name="EffectContainer" type="PanelContainer" parent="Border/ColorRect/Body/RewardsContainer"]
+[node name="EffectContainer" type="PanelContainer" parent="Border/ColorRect/VBoxContainer/Body/RewardsContainer/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(740, 0)
 layout_mode = 2
 theme_override_styles/panel = ExtResource("3_xqp3n")
 
-[node name="TownRewards" type="Label" parent="Border/ColorRect/Body/RewardsContainer/EffectContainer"]
+[node name="TownReward" type="Label" parent="Border/ColorRect/VBoxContainer/Body/RewardsContainer/MarginContainer/VBoxContainer/EffectContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 1
@@ -289,26 +159,32 @@ theme_override_font_sizes/font_size = 48
 text = "Here's the Card Effect. It may be multiple lines long, and that's okay"
 autowrap_mode = 2
 
-[node name="Header2" type="Label" parent="Border/ColorRect/Body/RewardsContainer"]
+[node name="PlayerRewardsHeader" type="Label" parent="Border/ColorRect/VBoxContainer/Body/RewardsContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 48
 text = "Player Rewards:"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Border/ColorRect/Body/RewardsContainer"]
+[node name="PlayerRewards" type="HBoxContainer" parent="Border/ColorRect/VBoxContainer/Body/RewardsContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
 
-[node name="PlayerRewards" type="VBoxContainer" parent="Border/ColorRect/Body/RewardsContainer/HBoxContainer"]
+[node name="PlayerReward" type="VBoxContainer" parent="Border/ColorRect/VBoxContainer/Body/RewardsContainer/MarginContainer/VBoxContainer/PlayerRewards"]
 layout_mode = 2
+size_flags_horizontal = 3
 
-[node name="Place" type="Label" parent="Border/ColorRect/Body/RewardsContainer/HBoxContainer/PlayerRewards"]
+[node name="Place" type="Label" parent="Border/ColorRect/VBoxContainer/Body/RewardsContainer/MarginContainer/VBoxContainer/PlayerRewards/PlayerReward"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 40
 text = "1st"
+horizontal_alignment = 1
 
-[node name="PanelContainer" type="PanelContainer" parent="Border/ColorRect/Body/RewardsContainer/HBoxContainer/PlayerRewards"]
+[node name="PanelContainer" type="PanelContainer" parent="Border/ColorRect/VBoxContainer/Body/RewardsContainer/MarginContainer/VBoxContainer/PlayerRewards/PlayerReward"]
 custom_minimum_size = Vector2(740, 0)
 layout_mode = 2
+size_flags_vertical = 3
 theme_override_styles/panel = ExtResource("3_xqp3n")
 
-[node name="Reward" type="Label" parent="Border/ColorRect/Body/RewardsContainer/HBoxContainer/PlayerRewards/PanelContainer"]
+[node name="Reward" type="Label" parent="Border/ColorRect/VBoxContainer/Body/RewardsContainer/MarginContainer/VBoxContainer/PlayerRewards/PlayerReward/PanelContainer"]
 layout_mode = 2
 size_flags_vertical = 1
 theme_type_variation = &"HeaderSmall"
@@ -316,19 +192,23 @@ theme_override_font_sizes/font_size = 48
 text = "Here's the Card Effect. It may be multiple lines long, and that's okay"
 autowrap_mode = 2
 
-[node name="PlayerRewards2" type="VBoxContainer" parent="Border/ColorRect/Body/RewardsContainer/HBoxContainer"]
+[node name="PlayerReward2" type="VBoxContainer" parent="Border/ColorRect/VBoxContainer/Body/RewardsContainer/MarginContainer/VBoxContainer/PlayerRewards"]
 layout_mode = 2
+size_flags_horizontal = 3
 
-[node name="Place" type="Label" parent="Border/ColorRect/Body/RewardsContainer/HBoxContainer/PlayerRewards2"]
+[node name="Place" type="Label" parent="Border/ColorRect/VBoxContainer/Body/RewardsContainer/MarginContainer/VBoxContainer/PlayerRewards/PlayerReward2"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 40
 text = "1st"
+horizontal_alignment = 1
 
-[node name="PanelContainer" type="PanelContainer" parent="Border/ColorRect/Body/RewardsContainer/HBoxContainer/PlayerRewards2"]
+[node name="PanelContainer" type="PanelContainer" parent="Border/ColorRect/VBoxContainer/Body/RewardsContainer/MarginContainer/VBoxContainer/PlayerRewards/PlayerReward2"]
 custom_minimum_size = Vector2(740, 0)
 layout_mode = 2
+size_flags_vertical = 3
 theme_override_styles/panel = ExtResource("3_xqp3n")
 
-[node name="Reward" type="Label" parent="Border/ColorRect/Body/RewardsContainer/HBoxContainer/PlayerRewards2/PanelContainer"]
+[node name="Reward" type="Label" parent="Border/ColorRect/VBoxContainer/Body/RewardsContainer/MarginContainer/VBoxContainer/PlayerRewards/PlayerReward2/PanelContainer"]
 layout_mode = 2
 size_flags_vertical = 1
 theme_type_variation = &"HeaderSmall"
@@ -336,19 +216,23 @@ theme_override_font_sizes/font_size = 48
 text = "Here's the Card Effect. It may be multiple lines long, and that's okay"
 autowrap_mode = 2
 
-[node name="PlayerRewards3" type="VBoxContainer" parent="Border/ColorRect/Body/RewardsContainer/HBoxContainer"]
+[node name="PlayerReward3" type="VBoxContainer" parent="Border/ColorRect/VBoxContainer/Body/RewardsContainer/MarginContainer/VBoxContainer/PlayerRewards"]
 layout_mode = 2
+size_flags_horizontal = 3
 
-[node name="Place" type="Label" parent="Border/ColorRect/Body/RewardsContainer/HBoxContainer/PlayerRewards3"]
+[node name="Place" type="Label" parent="Border/ColorRect/VBoxContainer/Body/RewardsContainer/MarginContainer/VBoxContainer/PlayerRewards/PlayerReward3"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 40
 text = "1st"
+horizontal_alignment = 1
 
-[node name="PanelContainer" type="PanelContainer" parent="Border/ColorRect/Body/RewardsContainer/HBoxContainer/PlayerRewards3"]
+[node name="PanelContainer" type="PanelContainer" parent="Border/ColorRect/VBoxContainer/Body/RewardsContainer/MarginContainer/VBoxContainer/PlayerRewards/PlayerReward3"]
 custom_minimum_size = Vector2(740, 0)
 layout_mode = 2
+size_flags_vertical = 3
 theme_override_styles/panel = ExtResource("3_xqp3n")
 
-[node name="Reward" type="Label" parent="Border/ColorRect/Body/RewardsContainer/HBoxContainer/PlayerRewards3/PanelContainer"]
+[node name="Reward" type="Label" parent="Border/ColorRect/VBoxContainer/Body/RewardsContainer/MarginContainer/VBoxContainer/PlayerRewards/PlayerReward3/PanelContainer"]
 layout_mode = 2
 size_flags_vertical = 1
 theme_type_variation = &"HeaderSmall"

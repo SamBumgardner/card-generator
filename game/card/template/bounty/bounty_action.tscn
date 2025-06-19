@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1ixwx8rss4e6"]
+
+[ext_resource type="StyleBox" uid="uid://dnd0jv2olbxdn" path="res://basic_text_box.tres" id="1_e514e"]
+[ext_resource type="PackedScene" uid="uid://b4bcleemsns2e" path="res://card/template/shared/stats_container.tscn" id="2_d3ff8"]
+
+[node name="BountyAction" type="PanelContainer"]
+custom_minimum_size = Vector2(100, 0)
+size_flags_horizontal = 6
+theme_override_styles/panel = ExtResource("1_e514e")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Cost" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 1
+theme_type_variation = &"HeaderSmall"
+theme_override_font_sizes/font_size = 48
+text = "Triggers: 1, 2, 3"
+
+[node name="StatsContainer" parent="MarginContainer/VBoxContainer" instance=ExtResource("2_d3ff8")]
+layout_mode = 2
