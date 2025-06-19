@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://dypmjcm1oecd5"]
 
 [ext_resource type="Theme" uid="uid://cmqrgxfe1sicp" path="res://new_theme.tres" id="1_ber2o"]
-[ext_resource type="Script" uid="uid://b62kgd0773g1b" path="res://card/template/card.gd" id="2_n7a3g"]
+[ext_resource type="Script" uid="uid://chvjkc2j0atax" path="res://card/template/bounty/card_bounty.gd" id="2_08317"]
 [ext_resource type="PackedScene" uid="uid://b1l5fw2kk6bqr" path="res://card/template/bounty/player_action.tscn" id="3_08317"]
 [ext_resource type="StyleBox" uid="uid://dnd0jv2olbxdn" path="res://basic_text_box.tres" id="3_xqp3n"]
 [ext_resource type="PackedScene" uid="uid://b1ixwx8rss4e6" path="res://card/template/bounty/bounty_action.tscn" id="4_08317"]
@@ -20,7 +20,7 @@ custom_minimum_size = Vector2(2475, 1687.5)
 offset_right = 200.0
 offset_bottom = 300.0
 theme = ExtResource("1_ber2o")
-script = ExtResource("2_n7a3g")
+script = ExtResource("2_08317")
 
 [node name="Border" type="ColorRect" parent="."]
 layout_mode = 2
@@ -94,6 +94,7 @@ theme_override_font_sizes/font_size = 48
 text = "Player Actions:"
 
 [node name="PlayerActions" type="HBoxContainer" parent="Border/ColorRect/VBoxContainer/Body/PlayerActionsContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 
@@ -114,6 +115,7 @@ theme_override_font_sizes/font_size = 48
 text = "Bounty Actions:"
 
 [node name="BountyActions" type="HBoxContainer" parent="Border/ColorRect/VBoxContainer/Body/BountyActionsContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 
@@ -165,26 +167,28 @@ theme_override_font_sizes/font_size = 48
 text = "Player Rewards:"
 
 [node name="PlayerRewards" type="HBoxContainer" parent="Border/ColorRect/VBoxContainer/Body/RewardsContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="PlayerReward" type="VBoxContainer" parent="Border/ColorRect/VBoxContainer/Body/RewardsContainer/MarginContainer/VBoxContainer/PlayerRewards"]
+[node name="PlayerReward1" type="VBoxContainer" parent="Border/ColorRect/VBoxContainer/Body/RewardsContainer/MarginContainer/VBoxContainer/PlayerRewards"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Place" type="Label" parent="Border/ColorRect/VBoxContainer/Body/RewardsContainer/MarginContainer/VBoxContainer/PlayerRewards/PlayerReward"]
+[node name="Place" type="Label" parent="Border/ColorRect/VBoxContainer/Body/RewardsContainer/MarginContainer/VBoxContainer/PlayerRewards/PlayerReward1"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "1st"
 horizontal_alignment = 1
 
-[node name="PanelContainer" type="PanelContainer" parent="Border/ColorRect/VBoxContainer/Body/RewardsContainer/MarginContainer/VBoxContainer/PlayerRewards/PlayerReward"]
+[node name="PanelContainer" type="PanelContainer" parent="Border/ColorRect/VBoxContainer/Body/RewardsContainer/MarginContainer/VBoxContainer/PlayerRewards/PlayerReward1"]
 custom_minimum_size = Vector2(740, 0)
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = ExtResource("3_xqp3n")
 
-[node name="Reward" type="Label" parent="Border/ColorRect/VBoxContainer/Body/RewardsContainer/MarginContainer/VBoxContainer/PlayerRewards/PlayerReward/PanelContainer"]
+[node name="Reward1" type="Label" parent="Border/ColorRect/VBoxContainer/Body/RewardsContainer/MarginContainer/VBoxContainer/PlayerRewards/PlayerReward1/PanelContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 1
 theme_type_variation = &"HeaderSmall"
@@ -199,7 +203,7 @@ size_flags_horizontal = 3
 [node name="Place" type="Label" parent="Border/ColorRect/VBoxContainer/Body/RewardsContainer/MarginContainer/VBoxContainer/PlayerRewards/PlayerReward2"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
-text = "1st"
+text = "2nd"
 horizontal_alignment = 1
 
 [node name="PanelContainer" type="PanelContainer" parent="Border/ColorRect/VBoxContainer/Body/RewardsContainer/MarginContainer/VBoxContainer/PlayerRewards/PlayerReward2"]
@@ -208,7 +212,8 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = ExtResource("3_xqp3n")
 
-[node name="Reward" type="Label" parent="Border/ColorRect/VBoxContainer/Body/RewardsContainer/MarginContainer/VBoxContainer/PlayerRewards/PlayerReward2/PanelContainer"]
+[node name="Reward2" type="Label" parent="Border/ColorRect/VBoxContainer/Body/RewardsContainer/MarginContainer/VBoxContainer/PlayerRewards/PlayerReward2/PanelContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 1
 theme_type_variation = &"HeaderSmall"
@@ -223,7 +228,7 @@ size_flags_horizontal = 3
 [node name="Place" type="Label" parent="Border/ColorRect/VBoxContainer/Body/RewardsContainer/MarginContainer/VBoxContainer/PlayerRewards/PlayerReward3"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
-text = "1st"
+text = "3rd"
 horizontal_alignment = 1
 
 [node name="PanelContainer" type="PanelContainer" parent="Border/ColorRect/VBoxContainer/Body/RewardsContainer/MarginContainer/VBoxContainer/PlayerRewards/PlayerReward3"]
@@ -232,7 +237,8 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = ExtResource("3_xqp3n")
 
-[node name="Reward" type="Label" parent="Border/ColorRect/VBoxContainer/Body/RewardsContainer/MarginContainer/VBoxContainer/PlayerRewards/PlayerReward3/PanelContainer"]
+[node name="Reward3" type="Label" parent="Border/ColorRect/VBoxContainer/Body/RewardsContainer/MarginContainer/VBoxContainer/PlayerRewards/PlayerReward3/PanelContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 1
 theme_type_variation = &"HeaderSmall"
