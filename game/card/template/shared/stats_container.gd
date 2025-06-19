@@ -1,4 +1,4 @@
-extends VBoxContainer
+class_name StatsContainer extends VBoxContainer
 
 func populate_info(card_spec: CardSpecification) -> void:
     $"%Might".text = card_spec.fields['might']

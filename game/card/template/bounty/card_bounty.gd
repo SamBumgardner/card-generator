@@ -25,25 +25,29 @@ func generate_player_actions(card_spec: CardSpecification) -> void:
         var cost = split_action[0]
         var effect = split_action[1]
         
-        var player_action_scene = (load("res://card/template/bounty/player_action.tscn") as PackedScene).instantiate()
+        var player_action_scene: PlayerAction = (load("res://card/template/bounty/player_action.tscn") as PackedScene).instantiate()
         $%PlayerActions.add_child(player_action_scene)
-        # Call method on player action action to set values
+        player_action_scene.cost.text = cost + ":"
+        player_action_scene.effect.text = effect
     
 
 func generate_bounty_actions(card_spec: CardSpecification) -> void:
     var bounty_actions: PackedStringArray = (card_spec.fields['attacks'] as String).split('|')
+    var numeric_regex: RegEx = RegEx.new()
+    numeric_regex.compile("\\d+")
     for bounty_action: String in bounty_actions:
         const stat_names = ['Might', 'Agility', 'Spirit', 'Wild']
         
         var split_action = bounty_action.split(":")
         var trigger_rolls = split_action[0]
         var stat_requirement_strings = split_action[1].split(",")
-        var stat_requirement_values = [0,0,0,0]
+        var stat_requirement_values = ["0","0","0","0"]
         for stat_requirement in stat_requirement_strings:
             for i in stat_names.size():
                 if stat_requirement.contains(stat_names[i]):
-                    stat_requirement_values[i] = int(stat_requirement)
+                    stat_requirement_values[i] = numeric_regex.search(stat_requirement).get_string()
         
-        var bounty_action_scene = (load("res://card/template/bounty/bounty_action.tscn") as PackedScene).instantiate()
+        var bounty_action_scene: BountyAction = (load("res://card/template/bounty/bounty_action.tscn") as PackedScene).instantiate()
         $%BountyActions.add_child(bounty_action_scene)
-        # Call method on bounty action to set values
+        bounty_action_scene.trigger.text = "Roll " + trigger_rolls +  ":"
+        bounty_action_scene.stats_container.populate_info_from_array(stat_requirement_values)
