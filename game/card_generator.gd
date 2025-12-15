@@ -76,6 +76,8 @@ func _process(_delta: float) -> void:
         print_page_number = 0
         current_card_printed_count = 0
         next_page = get_next_page_of_card_specs()
+        if sets_to_print[current_set_i].back_side:
+            next_page = invert_card_columns(next_page)
         _instantiate_cards(next_page)
     else:
         get_tree().quit()
