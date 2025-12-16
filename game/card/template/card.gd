@@ -13,10 +13,10 @@ var cards_per_page = 9
 func _ready() -> void:
     effect_label = $%Effect
     if card_spec != null:
-        name_label.text = card_spec.fields['name']
+        name_label.text = card_spec.fields.get('name')
         supertype_label.text = card_spec.supertype
-        typeline_label.text = card_spec.fields['typeline']
-        effect_label.text = card_spec.fields['effect']
+        typeline_label.text = card_spec.fields.get('typeline')
+        effect_label.text = card_spec.fields.get('effect')
         
         if effect_label.text.is_empty():
             effect_label.text = "No effect"
